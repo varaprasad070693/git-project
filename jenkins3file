@@ -2,20 +2,20 @@ pipeline {
     agent any
 
     environment {
-        AWS_DEFAULT_REGION = 'us-east-1'
-        S3_BUCKET = 'my-static-website-bucket'
+        AWS_DEFAULT_REGION = 'eu-north-1'
+        S3_BUCKET = 'mystatics3bucket1993'
     }
 
     stages {
         stage('Clone Repo') {
             steps {
-                git 'https://github.com/YOUR_USERNAME/my-static-website.git'
+                git 'https://github.com/varaprasad070693/git-project.git'
             }
         }
 
         stage('Deploy to S3') {
             steps {
-                sh 'aws s3 sync . s3://$S3_BUCKET --delete'
+                sh 'aws s3 sync . s3://$S3_BUCKET'
             }
         }
     }
